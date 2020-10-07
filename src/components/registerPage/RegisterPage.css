@@ -21,6 +21,41 @@
     height: 70px;
 }
 
-.hello-text {
-    margin-top: 30px;
+
+
+@media screen and (max-width: 1440px) {
+    .registerPage {
+        width: 32vw;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .registerPage {
+        width: 40vw;
+        height: 80vh;
+        margin-top: 80px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .registerPage {
+        width: 55vw;
+        height: 80vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .registerPage {
+        width: 70vw;
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .registerPage {
+        width: 95vw;
+        height: 95vh;
+        margin: auto;
+        margin-top: 10px;
+    }
 }
