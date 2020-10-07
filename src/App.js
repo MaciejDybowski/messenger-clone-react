@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import LoginPage from './components/loginPage'
+import RegisterPage from './components/registerPage'
 
 import {
   BrowserRouter as Router,
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <Switch>
           <Route path='/' exact component={LoginPage}></Route>
+          <Route path='/register' exact component={RegisterPage}></Route>
         </Switch>
       </Router>
     </div>

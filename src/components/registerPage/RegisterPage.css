@@ -1,0 +1,26 @@
+.registerPage {
+    width: 25vw;
+    height: 65vh;
+    background-color: #2D2D2D;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    color: white;
+    font-family: Neue, Helvetica, sans-serif;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.registerPage img {
+    margin-top: 100px;
+    width: 70px;
+    height: 70px;
+}
+
+.hello-text {
+    margin-top: 30px;
+}
