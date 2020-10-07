@@ -1,0 +1,176 @@
+.loginPage {
+    width: 25vw;
+    height: 65vh;
+    background-color: #2D2D2D;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    color: white;
+    font-family: Neue, Helvetica, sans-serif;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.loginPage img {
+    margin-top: 100px;
+    width: 70px;
+    height: 70px;
+}
+
+.hello-text {
+    margin-top: 30px;
+}
+
+.email-field {
+    cursor: pointer;
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #3D3D3D;
+    color: #f3f3f3;
+    font-size: 0.7em;
+    padding-left: 10px;
+    font-weight: 200;
+    margin: 5px 1px;
+}
+
+.email-field::placeholder {
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.email-field:hover {
+    margin: 4px 0px;
+    border: 1px solid #f3F3F3;
+}
+
+.email-field:focus {
+    border: 0px;
+    margin: 5px 1px;
+}
+
+.password-field {
+    cursor: pointer;
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #3D3D3D;
+    color: #f3f3f3;
+    font-size: 0.7em;
+    padding-left: 10px;
+    font-weight: 200;
+    margin-top: 20px;
+    margin: 5px 1px;
+}
+
+.password-field::placeholder {
+    font-size: 1em;
+    font-weight: 200;
+}
+
+.password-field:hover {
+    border: 1px solid #f3F3F3;
+    margin: 4px 0px;
+}
+
+.password-field:focus {
+    border: 0px;
+    margin: 5px 1px;
+}
+
+.login-btn {
+    width: 82%;
+    height: 35px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #008EF8;
+    color: #f3f3f3;
+    font-size: 0.7em;
+    font-weight: bold;
+    margin-top: 20px
+}
+
+.password-text {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.7em;
+    font-weight: 100;
+}
+
+.newAcc {
+    width: 30%;
+    height: 30px;
+    color: #FFFFFF;
+    background-color: #474747;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 0.7em;
+    font-weight: 500;
+    margin-top: auto;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1860px) {
+    .newAcc {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .loginPage {
+        width: 32vw;
+    }
+    .newAcc {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .loginPage {
+        width: 40vw;
+        height: 80vh;
+        margin-top: 80px;
+    }
+    .newAcc {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .loginPage {
+        width: 55vw;
+        height: 80vh;
+    }
+    .newAcc {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .loginPage {
+        width: 70vw;
+        height: 60vh;
+    }
+    .newAcc {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .loginPage {
+        width: 95vw;
+        height: 95vh;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .newAcc {
+        width: 45%;
+    }
+}
+
