@@ -11,7 +11,7 @@ export const register = (user) => {
                 firestore.collection('users').doc(data.user.uid).set({
                     firstName: user.firstName,
                     lastName: user.lastName,
-                    initials : user.firstName[0] + user.lastName[0]
+                    initials: user.firstName[0] + user.lastName[0]
                 })
             })
             .then(() => dispatch({ type: "REGISTER" }))
@@ -20,14 +20,24 @@ export const register = (user) => {
 
 export const login = (credentials) => {
     // credentials to podane przez uzytkownika dane z formularza
-        return (dispatch, getState, { getFirebase }) => {
-            const firebase = getFirebase(); // podłaczenie do uslugi
-            firebase.auth().signInWithEmailAndPassword( // dostepna metoda z API
-                credentials.email,
-                credentials.password,
-    
-            ).then(() => {
-                dispatch({ type: "LOGIN" })
-            })
-        }
+    return (dispatch, getState, { getFirebase }) => {
+        const firebase = getFirebase(); // podłaczenie do uslugi
+        firebase.auth().signInWithEmailAndPassword( // dostepna metoda z API
+            credentials.email,
+            credentials.password,
+
+        ).then(() => {
+            dispatch({ type: "LOGIN" })
+        })
     }
+}
+
+export const logout = () => {
+    return (dispatch, getState, { getFirebase }) => {
+        const firebase = getFirebase();
+        firebase.auth().signOut()
+            .then(() =>
+                dispatch({ type: 'LOGOUT' })
+            )
+    }
+}

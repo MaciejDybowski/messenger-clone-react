@@ -1,0 +1,112 @@
+.rightPanel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.person-auth {
+    width: 95%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: content-box;
+}
+
+.phone-icon{
+    margin-left: auto;
+    margin-right: 5px;
+    color:#008AF8!important
+}
+
+.video-icon{
+    margin : 0px 5px;
+    color:#008AF8!important
+}
+
+.search-icon{
+    margin:0px 5px;
+    color:#008AF8!important
+}
+
+.dot-icon{
+    margin: 0px 5px;
+    color:#008AF8!important
+}
+
+.msg-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+    padding: 5px 5px;
+
+}
+
+.msg-input input{
+    background-color: #555656;
+    color: white;
+    width: 90%;
+    height: 30px;
+    border-radius: 25px;
+    border:0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+
+}
+
+.msg-input input:focus{
+    outline-width: 0;
+    outline: 0;
+}
+
+.add-icon{
+    color:#008AF8!important;
+}
+.like-icon{
+    color:#008AF8!important;
+}
+
+.msg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.myMsg{
+    max-width: 50%;
+    background-color: #008AF8;
+    font-size: 14px;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.yourMsg{
+    max-width: 50%;
+    background-color: #555656;
+    font-size: 14px;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left: 20px;
+    margin-right: auto;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

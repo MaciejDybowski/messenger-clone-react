@@ -26,10 +26,8 @@ function RegisterPage() {
         }
         dispatch(register(user));
     }
-    /* // pobranie do zmiennej isAuth czy jest user
     const isAuth = useSelector(state => state.firebase.auth)
-    // jesli ma to przekierowanie gdzie chcesz
-    if (isAuth.uid) return <Redirect to='/dashboard'></Redirect> */
+    if(isAuth.uid) return <Redirect to='/dashboard'></Redirect>
     return (
         <div className='registerPage'>
             <img src={logo} alt='logo'></img>

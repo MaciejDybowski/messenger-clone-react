@@ -1,5 +1,5 @@
 const initState = {
-
+    test: 'qweqwq'
 };
 
 const authReducer = (state = initState, action) => {
@@ -10,7 +10,9 @@ const authReducer = (state = initState, action) => {
         case "REGISTER":
             console.log('register success')
             return state;
-
+        case "LOGOUT":
+            console.log('logout success')
+            return state;
         default:
             return state;
     }

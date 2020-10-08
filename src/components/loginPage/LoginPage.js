@@ -22,7 +22,8 @@ function LoginPage() {
         }
         dispatch(login(data));
     }
-
+    const isAuth = useSelector(state => state.firebase.auth)
+    if(isAuth.uid) return <Redirect to='/dashboard'></Redirect>
     return (
         <div className='loginPage'>
             <img src={logo} alt='logo'></img>
