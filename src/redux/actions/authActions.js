@@ -11,7 +11,7 @@ export const register = (user) => {
                 firestore.collection('users').doc(data.user.uid).set({
                     firstName: user.firstName,
                     lastName: user.lastName,
-
+                    initials : user.firstName[0] + user.lastName[0]
                 })
             })
             .then(() => dispatch({ type: "REGISTER" }))

@@ -1,10 +1,11 @@
 import React from 'react'
 import './Dashboard.css'
+import LeftPanel from '../leftPanel'
 
 function Dashboard() {
     return (
-        <div>
-            <p>Dashboard content</p>
+        <div className='dashboard'>
+            <LeftPanel/>
         </div>
     )
 }
