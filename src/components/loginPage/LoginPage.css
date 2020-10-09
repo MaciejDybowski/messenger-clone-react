@@ -45,7 +45,7 @@
 }
 
 .email-field:hover {
-    margin: 4px 0px;
+    
     border: 1px solid #f3F3F3;
 }
 
@@ -76,7 +76,7 @@
 
 .password-field:hover {
     border: 1px solid #f3F3F3;
-    margin: 4px 0px;
+    
 }
 
 .password-field:focus {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Avatar from '@material-ui/core/Avatar';
 import './RightPanel.css'
@@ -14,15 +14,18 @@ import { addMsg } from '../../redux/actions/msgActions'
 import { useFirestoreConnect } from 'react-redux-firebase'
 
 
+import ScrollableFeed from 'react-scrollable-feed'
+
 function RightPanel() {
     const dispatch = useDispatch();
+    const myRef = useRef();
 
     // id zalogowanego
     const authUser = useSelector(state => state.firebase.auth.uid)
     // profil odbiorcy
     const uid = useSelector(state => state.person.uid);
     const persons = useSelector(state => state.firestore.ordered.users);
-    const person = persons?.filter((person) => person.id === uid);
+    const person = persons && persons.filter((person) => person.id === uid);
 
     // wiadomosc
     const [message, setMessage] = useState('');
@@ -30,16 +33,10 @@ function RightPanel() {
     //pobranie wiadomosci
     useFirestoreConnect([{ collection: 'messages' }])
     const messages = useSelector(state => state.firestore.ordered.messages);
-    console.log(authUser); // zalogowany
-    console.log(uid); // odbiorca
-    console.log(messages); 
+    const myMessages = messages && messages.filter((msg) => msg.from === authUser || msg.from === uid);
+    const finsalMessages = myMessages && myMessages.filter((msg) => msg.to === uid || msg.to === authUser);
+    const sortedMessages = finsalMessages && finsalMessages.slice().sort((a, b) => a.time - b.time);
 
-    const myMessages = messages?.filter((msg) => msg.from === authUser || msg.from === uid );
-    console.log(myMessages);
-
-    const finsalMessages = myMessages?.filter((msg) => msg.to === uid || msg.to === authUser);
-    const sortedMessages = finsalMessages?.slice().sort((a,b) => a.time - b.time);
-    console.log(finsalMessages);
 
     const enterSubmit = (e) => {
         if (e.keyCode === 13) {
@@ -51,7 +48,16 @@ function RightPanel() {
             dispatch(addMsg(obj));
             setMessage("");
         }
+    }
 
+    const likeSubmit = () => {
+        console.log("dawaj okejke");
+        const obj = {
+            to: uid,
+            from: authUser,
+            content: '(y)',
+        }
+        dispatch(addMsg(obj));
     }
 
     let user = {}
@@ -71,14 +77,24 @@ function RightPanel() {
                             <SearchIcon className='search-icon' />
                             <MoreVertIcon className='dot-icon' />
                         </div>
-                        <div className='msg'>
-                            {sortedMessages?.map((msg) => {
-                                if(msg.from === authUser){
-                                    return <p className='myMsg'>{msg.content}</p>
-                                }else{
-                                    return <p className='yourMsg'>{msg.content}</p>
-                                }
-                            })}
+                        <div className='msg' ref={myRef}>
+                            <ScrollableFeed>
+                                {sortedMessages?.map((msg) => {
+                                    if (msg.from === authUser) {
+                                        if (msg.content === '(y)') {
+                                            return <p key={msg.id} className='myMsg likeIcon'><ThumbUpIcon /></p>
+                                        } else {
+                                            return <p key={msg.id} className='myMsg'>{msg.content}</p>
+                                        }
+                                    } else {
+                                        if (msg.content === '(y)') {
+                                            return <p key={msg.id} className='yourMsg likeIcon'><ThumbUpIcon /></p>
+                                        } else {
+                                            return <p key={msg.id} className='yourMsg'>{msg.content}</p>
+                                        }
+                                    }
+                                })}
+                            </ScrollableFeed>
                         </div>
                         <div className='msg-input'>
                             <AddCircleIcon className='add-icon' />
@@ -89,7 +105,7 @@ function RightPanel() {
                                 value={message}
                                 onChange={(e) => setMessage(e.currentTarget.value)}
                             ></input>
-                            <ThumbUpIcon className='like-icon' />
+                            <ThumbUpIcon className='like-icon' onClick = {() => likeSubmit()}/>
                         </div>
                     </>
                     : <></>}

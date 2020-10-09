@@ -11,3 +11,10 @@
     display: flex;
     flex-direction: row;
 }
+
+
+@media screen and (max-width: 1360px) {
+    .dashboard{
+        width: 80vw;
+    }
+}
